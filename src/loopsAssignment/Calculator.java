@@ -6,8 +6,8 @@ package loopsAssignment;
 public class Calculator {
 	public static void main(String[] args) {
 
-		int num1 = 8, num2 = 4, result;
-		char operator = '-';
+		double num1 = 0, num2 = 8, result;
+		char operator = '/';
 
 		switch (operator) {
 		case '+':

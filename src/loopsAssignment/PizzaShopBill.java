@@ -14,7 +14,7 @@ public class PizzaShopBill {
 		String selectPizza = "small";
 		int f = 0;
 
-		boolean addPepporoni = false;
+		boolean addPepporoni = true;
 		boolean addExtraCheese = true;
 		int bill = 0;
 
