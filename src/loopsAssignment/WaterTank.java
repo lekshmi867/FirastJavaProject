@@ -9,20 +9,20 @@ package loopsAssignment;
 public class WaterTank {
 
 	public static void main(String[] args) {
-		int waterLevel = 0;
+		int waterLevelInTank = 0;
 		int waterInBucket = 10;
 
 		for (int i = 1; i < 20; i++) {
 
-			waterLevel = waterLevel + waterInBucket;
-			System.out.println("Level of water =" + waterLevel + "litres");
+			waterLevelInTank = waterLevelInTank + waterInBucket;
+			System.out.println("Level of water =" + waterLevelInTank + "litres");
 
-			if (waterLevel == 100) {
+			if (waterLevelInTank == 100) {
 				System.out.println("Tank has reached the maximum capacity");
 				break;
 			}
 		}
-		System.out.println("Level of water in the tank  = " + waterLevel);
+		System.out.println("Level of water in the tank  = " + waterLevelInTank);
 	}
 
 }
