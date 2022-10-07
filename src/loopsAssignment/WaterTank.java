@@ -1,28 +1,30 @@
-/*There is a water tank of capacity 100 litres.
- *Water is filled into it using a bucket which has a capacity of 10 litres. 
- * Write a program which fills the tank to its capacity using these buckets. 
- *Also include a mechanism in your program to stop the tank from overflowing.
+/*Write a program that will keep adding 5 chocolates to a box which already has 27 chocolates 
+
+ * and add a mechanism that number of chocolates should never go above 63
 */
 
 package loopsAssignment;
 
-public class WaterTank {
+public class ChocolateBox {
 
 	public static void main(String[] args) {
-		int waterLevelInTank = 0;
-		int waterInBucket = 10;
+		int chocolateInBox = 27;
+		int i;
 
-		for (int i = 1; i < 20; i++) {
+		System.out.println("Initial count of chocolates in the box =  " + chocolateInBox);
 
-			waterLevelInTank = waterLevelInTank + waterInBucket;
-			System.out.println("Level of water =" + waterLevelInTank + "litres");
+		for (i = 1; i < 20; i++) {
 
-			if (waterLevelInTank == 100) {
-				System.out.println("Tank has reached the maximum capacity");
+			chocolateInBox = chocolateInBox + 5;
+			System.out.println("After iteration " + i + " count in the box =" + chocolateInBox);
+
+			if (chocolateInBox >= 62) {
+				System.out.println("Number of chocolates in the box reached the maximum limit");
 				break;
 			}
 		}
-		System.out.println("Level of water in the tank  = " + waterLevelInTank);
+		System.out.println("Total number of chocolates in the box = " + chocolateInBox);
+
 	}
 
 }
