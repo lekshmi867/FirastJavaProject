@@ -11,21 +11,26 @@ package loopsAssignment;
 public class PizzaShopBill {
 
 	public static void main(String[] args) {
-		String selectPizza = "small";
-		int f = 0;
-
+		String selectPizza = "medium";
 		boolean addPepporoni = true;
 		boolean addExtraCheese = true;
+		int f = 0;
+		int smallPizzaPrice = 15;
+		int mediumPizzaPrice = 20;
+		int largePizzaPrice = 25;
+		int smallPerroroniPrice = 2;
+		int mediumlargePepporoniPrize =3;
+		int extraCheesePrice = 1;
 		int bill = 0;
 
 		if (selectPizza.equals("small")) {
-			bill = bill + 15;
+			bill = bill + smallPizzaPrice;
 			System.out.println("Pizza:			$" + bill);
 		} else if (selectPizza.equals("medium")) {
-			bill = bill + 20;
+			bill = bill + mediumPizzaPrice;
 			System.out.println("Pizza: 			$" + bill);
 		} else if (selectPizza.equals("large")) {
-			bill = bill + 25;
+			bill = bill + largePizzaPrice;
 			System.out.println("Pizza: 			$" + bill);
 		} else {
 			f = 1;
@@ -34,10 +39,10 @@ public class PizzaShopBill {
 		if (addPepporoni) {
 			if (selectPizza.equals("small")) {
 				System.out.println("Pepporoni:		$2");
-				bill = bill + 2;
+				bill = bill + smallPerroroniPrice;
 			} else if ((selectPizza.equals("large")) || (selectPizza.equals("medium"))) {
 				System.out.println("Pepporoni:		$3");
-				bill = bill + 3;
+				bill = bill + mediumlargePepporoniPrize;
 			} else {
 				f = 1;
 			}
@@ -46,7 +51,7 @@ public class PizzaShopBill {
 		if (addExtraCheese) {
 			if ((selectPizza.equals("large")) || (selectPizza.equals("medium")) || (selectPizza.equals("small"))) {
 				System.out.println("Extra cheese:		$1");
-				bill = bill + 1;
+				bill = bill + extraCheesePrice;
 			} else {
 				f = 1;
 			}

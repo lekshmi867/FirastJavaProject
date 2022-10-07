@@ -7,21 +7,25 @@ public class WaterTank {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int waterLevel =0;
-		int waterInBucket =10;
-		
-		for (int i = 1; i < 20; i++) {
+		int waterLevel = 26;
+		int waterInBucket = 10;
+		int tankMaxCapacity = 100;
 
-			waterLevel = waterLevel + waterInBucket;
-			System.out.println("Level of water =" +waterLevel+ "litres" );
-
-			if (waterLevel == 100) {
-				System.out.println("Tank has reached the maximum capacity");
+		while (waterLevel < tankMaxCapacity) {
+			if (waterLevel >= 97) {
+				System.out.println("Tank almost reached the maximum capacity");
 				break;
+			} else if ((waterLevel + waterInBucket) >= tankMaxCapacity) {
+				System.out.println("If you add more water tank will overflow");
+				break;
+			} else {
+				waterLevel = waterLevel + waterInBucket;
+				System.out.println("Current level of water in tank is "+waterLevel);
 			}
-		}
-		System.out.println("Level of water in the tank  = " + waterLevel );
 
+		}
+
+		System.out.println("The level of water in tank is " + waterLevel);
 	}
 
 }
