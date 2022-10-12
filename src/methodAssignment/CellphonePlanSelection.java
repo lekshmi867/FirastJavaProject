@@ -138,5 +138,13 @@ public class CellphonePlanSelection {
 
 		return planCost;
 	}
+	//Method for final bill
+	void billForModelAndPlan(int modelCost, String plan, int planCost, String model ) {
+		System.out.println("You have selected " + model + " with " + plan + " plan");
+		System.out.println("Your Phone tab will be $" + modelCost);
+		System.out.println("Your Montly Plan will be $" + planCost);
+		int totalCost = modelCost + planCost;
+		System.out.println("Total montly amount is $" + totalCost);
+	}
 
 }

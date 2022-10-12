@@ -57,8 +57,7 @@ public class CRSMainMethod {
 		// invoking ieltsReadWriteSpeakScore method
 		finalPoints = finalPoints + cp.ieltsReadWriteSpeakScore(speakingScore);
 
-		System.out.println(
-				"If you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece) who is a Canadian Citizen or PR holder (Y/N) ");
+		System.out.println("If you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece) who is a Canadian Citizen or PR holder (Y/N) ");
 		String relativeInCanada = sc.next();
 
 		// invoking relativeOrStudyInCanada method
