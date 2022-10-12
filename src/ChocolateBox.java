@@ -9,11 +9,17 @@ public class ChocolateBox {
 
 		System.out.println("Initial count of chocolates in the box =  " + chocolateInBox);
 
-		while(chocolateInBox<=63) {
-
-			System.out.println("count in the box =" + chocolateInBox);
-			chocolateInBox = chocolateInBox + 5;
+		while(chocolateInBox<=80) {
+			if(chocolateInBox>=62) {
+			System.out.println("Box is full " +chocolateInBox);
+			break;
+			}
+			else {
+				chocolateInBox = chocolateInBox + 5;
+			}
+			System.out.println("chocolate in box = "+chocolateInBox);
 		}
+		
 
 	}
 

@@ -61,10 +61,10 @@ public class PizzaShopBill {
 
 			System.out.println("Do you want to order more pizza press y to continue");
 			morePizza = sc.nextLine();
-
+			sc.close();
 		} while (morePizza.equals("y"));
-		
-		System.out.println("Total amount is $"+bill);
+
+		System.out.println("Total amount is $" + bill);
 
 	}
 }
