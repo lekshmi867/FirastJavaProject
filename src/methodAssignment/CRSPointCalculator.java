@@ -2,7 +2,7 @@ package methodAssignment;
 
 public class CRSPointCalculator {
 	// Method for Educational Qualification
-	int educationalQualification(int choice) {
+	int pointsForEducationalQualification(int choice) {
 		int points = 0;
 
 		switch (choice) {
@@ -28,7 +28,7 @@ public class CRSPointCalculator {
 	}
 
 	// Method for Experience
-	int experience(double years) {
+	int pointsForExperience(int years) {
 
 		int points = 0;
 
@@ -43,7 +43,7 @@ public class CRSPointCalculator {
 	}
 
 	// method for age of that applicant
-	int age(int years) {
+	int pointsForAge(int years) {
 		int points = 0;
 		if ((years >= 18) && (years <= 35)) {
 			points = points + 12;
@@ -94,9 +94,9 @@ public class CRSPointCalculator {
 	}
 
 	// Method for IELTS
-	int ieltsListeningScore(double score) {
+	int pointsForIeltsListeningScore(double score) {
 		int points = 0;
-		if (score >= 8) {
+		if ((score >= 8)&&(score <= 9)) {
 			points = points + 6;
 		} else if (score == 7.5) {
 			points = points + 5;
@@ -108,9 +108,9 @@ public class CRSPointCalculator {
 	}
 
 	// Method for reading, writing and speaking score
-	int ieltsReadWriteSpeakScore(double score) {
+	int pointsForIeltsReadWriteSpeakScore(double score) {
 		int points = 0;
-		if (score >= 7) {
+		if ((score >= 7)&&(score <= 9)) {
 			points = points + 6;
 		} else if (score == 6.5) {
 			points = points + 5;
@@ -121,8 +121,8 @@ public class CRSPointCalculator {
 
 	}
 
-	//Method for relative in canada or study in canada
-	int relativeOrStudyInCanada(String option) {
+	// Method for relative in canada or study in canada
+	int pointsForAdaptabilityRelativeInCanadaOrStudyInCanada(String option) {
 		int points = 0;
 		if (option.equalsIgnoreCase("y")) {
 			points = points + 5;
@@ -132,9 +132,9 @@ public class CRSPointCalculator {
 		return points;
 
 	}
-	
-	//Method for work in canada
-	int workInCanada(String option) {
+
+	// Method for work in canada
+	int pointsForAdaptabilityWorkInCanada(String option) {
 		int points = 0;
 		if (option.equalsIgnoreCase("y")) {
 			points = points + 10;

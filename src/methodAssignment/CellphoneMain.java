@@ -7,46 +7,79 @@ public class CellphoneMain {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
 		// Instantiate the class CellphonePlanSelection
 		CellphonePlanSelection cp = new CellphonePlanSelection();
-		System.out.println("Please enter the Brand that you want to choose from: Apple/ Samsung");
-		String choice = sc.nextLine();
-		if (choice.equalsIgnoreCase("samsung")) {
-			System.out.println("Please enter the model that you want to buy from below");
-			String model = cp.samsungModelSelection();// Invoking method samsungModelSelection of class
-														// CellphonePlanSelection
-			System.out.println("Please enter the color that you want to buy from below");// Invoking method
-																							// colorSelection of class
-																							// CellphonePlanSelection
-			String color = cp.colorSelection();
-			if ((!model.equals("")) && (!color.equals(""))) {
-				int modelCost = cp.samsungModelPrice(model);// Invoking method samsungModelPrice of class
+		int invalidAttempts = 0;
+		while (invalidAttempts <= 2) {
+			System.out.println("Please enter the Brand that you want to choose from: Apple/ Samsung");
+			String userChoice = sc.nextLine();
+			if (userChoice.equalsIgnoreCase("samsung")) {
+				int modelInvalidAttempts = 0;
+				do {
+					System.out.println("Please enter the model that you want to buy from below");
+					String model = cp.samsungModelSelection();// Invoking method samsungModelSelection of class
+																// CellphonePlanSelection
+					if (!model.equals("")) {
+						int modelCost = cp.samsungModelPrice(model);
+						int planInvalidAttempt =0;
+						do {
+							System.out.println("Please select the plan that you want to opt for: Rogers/ Telus/ Bell");
+							String networkPlan = sc.nextLine();// Invoking method networkPlans of class
+																// CellphonePlanSelection
+							int planPrice = cp.networkPlans(networkPlan);
+							if (planPrice != 0) {
+								cp.finalBillForModelAndPlan(model, networkPlan, modelCost, planPrice);// Invoking method
+								break;
+							} else {
+								System.out.println("No match for that plan.");
+								planInvalidAttempt++;
+							}
+
+						} while (planInvalidAttempt <= 2);
+						System.exit(0); 
+					} else {
+						System.out.println("No match for that model");
+						modelInvalidAttempts++;
+					}
+				} while (modelInvalidAttempts <= 2);
+				System.exit(0);
+			} else if (userChoice.equalsIgnoreCase("apple")) {
+				int modelInvalidAttempts = 0;
+				do {
+					System.out.println("Please enter the model that you want to buy from below");
+					String model = cp.appleModelSelection();// Invoking appleModelSelection method of class
 															// CellphonePlanSelection
-				System.out.println("Please select the plan that you want to opt for: Rogers/ Telus/ Bell");
-				String plan = sc.nextLine();
-				int planPrice = cp.networkPlans(plan);// Invoking method networkPlans of class CellphonePlanSelection
-				cp.billForModelAndPlan(modelCost, plan, planPrice, model);//Invoking method billForModelAndPlan
+					if (!model.equals("")) {
+						int modelCost = cp.appleModelPrice(model);
+						int planInvalidAttempt =0;
+						do {
+							System.out.println("Please select the plan that you want to opt for: Rogers/ Telus/ Bell");
+							String networkPlan = sc.nextLine();// Invoking method networkPlans of class
+																// CellphonePlanSelection
+							int planPrice = cp.networkPlans(networkPlan);
+							if (planPrice != 0) {
+								cp.finalBillForModelAndPlan(model, networkPlan, modelCost, planPrice);// Invoking method
+								break;
+							} else {
+								System.out.println("No match for that plan.");
+								planInvalidAttempt++;
+							}
+
+						} while (planInvalidAttempt <= 2);
+						System.exit(0); // billForModelAndPlan
+					} else {
+						System.out.println("No match for that model");
+						modelInvalidAttempts++;
+					}
+				} while (modelInvalidAttempts <= 2);
+				System.exit(0);
 			} else {
-				System.out.println("No match for that model");
+				System.out.println("Brand " + userChoice + " is not available");
+				invalidAttempts++;
 			}
-		} else if (choice.equalsIgnoreCase("apple")) {
-			System.out.println("Please enter the model that you want to buy from below");
-			String model = cp.appleModelSelection();// Invoking appleModelSelection method of class
-													// CellphonePlanSelection
-			System.out.println("Please enter the color that you want to buy from below");
-			String color = cp.colorSelection(); // Invoking colorSelection method of class CellphonePlanSelection
-			if ((!model.equals("")) && (!color.equals(""))) {
-				int modelPrice = cp.appleModelPrice(model);
-				System.out.println("Please select the plan that you want to opt for: Rogers/ Telus/ Bell");
-				String planApple = sc.nextLine();// Invoking method networkPlans of class CellphonePlanSelection
-				int planPrice = cp.networkPlans(planApple);
-				cp.billForModelAndPlan(modelPrice, planApple, planPrice, model);//Invoking method billForModelAndPlan
-			} else {
-				System.out.println("No match for that model");
+			if (invalidAttempts == 3) {
+				System.out.println("You have reached the maximum attempt please start once again");
 			}
-		} else {
-			System.out.println("No model selected");
 		}
 
 	}

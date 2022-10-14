@@ -5,141 +5,117 @@ import java.util.Scanner;
 public class CellphonePlanSelection {
 
 	Scanner sc = new Scanner(System.in);
-	
 
-	//Method for samsung model selection
+	// Method for samsung model selection
 	String samsungModelSelection() {
-		String[] samsung = { "S22", "S22+", "S22 ULTRA", "S22FE" };
+		String[] samsungModelList = { "S22", "S22+", "S22 ULTRA", "S22FE" };
 		boolean isModelAvailable = false;
-		for (int i = 0; i < samsung.length; i++) {
-			System.out.println(samsung[i] + "\n");
+		for (int i = 0; i < samsungModelList.length; i++) {
+			System.out.println(samsungModelList[i] + "\n");
 		}
-		String modelSamsung = sc.nextLine().toUpperCase();
-		for (int i = 0; i < samsung.length; i++) {
-			if (samsung[i].equals(modelSamsung)) {
+		String selectedModel = sc.nextLine().toUpperCase();
+		for (int i = 0; i < samsungModelList.length; i++) {
+			if (samsungModelList[i].equals(selectedModel)) {
 				isModelAvailable = true;
 				break;
 			}
 		}
 		if (isModelAvailable) {
-			return modelSamsung;
+			return selectedModel;
 		} else {
 			return "";
 		}
 
 	}
 
-	
-	//Method for apple model selection
-	String appleModelSelection()
-	{
-		String[] apple = { "IPHONE 14", "IPHONE 14 PRO", "IPHONE 14 PRO MAX", "IPHONE 14 MINI" };
+	// Method for apple model selection
+	String appleModelSelection() {
+		String[] appleModelList = { "IPHONE 14", "IPHONE 14 PRO", "IPHONE 14 PRO MAX", "IPHONE 14 MINI" };
 		boolean isModelAvailable = false;
-		for (int i = 0; i < apple.length; i++) {
-			System.out.println(apple[i] + "\n");
+		for (int i = 0; i < appleModelList.length; i++) {
+			System.out.println(appleModelList[i] + "\n");
 		}
-		String modelApple = sc.nextLine().toUpperCase();
-		for (int i = 0; i < apple.length; i++) {
-			if (apple[i].equals(modelApple)) {
+		String selectedModel = sc.nextLine().toUpperCase();
+		for (int i = 0; i < appleModelList.length; i++) {
+			if (appleModelList[i].equals(selectedModel)) {
 				isModelAvailable = true;
 				break;
 			}
 		}
 		if (isModelAvailable) {
-			return modelApple;
+			return selectedModel;
 		} else {
 			return "";
 		}
 	}
-	
-	//Method for  color selection
-		String colorSelection()
-		{
-			String[] color = { "BLACK", "GREEN", "RED", "BLUE", "PINK" };
-			boolean isColorAvailable = false;
-			for (int i = 0; i < color.length; i++) {
-				System.out.println(color[i] + "\n");
-			}
-			String modelColor = sc.nextLine().toUpperCase();
-			for (int i = 0; i < color.length; i++) {
-				if (color[i].equals(modelColor)) {
-					isColorAvailable = true;
-					break;
-				}
-			}
-			if (isColorAvailable) {
-				return modelColor;
-			} else {
-				return "";
-			}
-		}
-	
 
-	//Method for samsung model price
-	int samsungModelPrice(String samsungModel) {
-		int samsungPrice = 0;
-		switch (samsungModel) {
+
+	// Method for samsung model price
+	int samsungModelPrice(String selectedSamsungModel) {
+		int samsungModelPrice = 0;
+		switch (selectedSamsungModel) {
 		case "S22":
-			samsungPrice = 25;
+			samsungModelPrice = 25;
 			break;
 		case "S22+":
-			samsungPrice = 35;
+			samsungModelPrice = 35;
 			break;
 		case "S22 ULTRA":
-			samsungPrice = 55;
+			samsungModelPrice = 55;
 			break;
 		case "S22FE":
-			samsungPrice = 20;
+			samsungModelPrice = 20;
 			break;
 		default:
-			samsungPrice = 0;
+			samsungModelPrice = 0;
 			break;
 		}
-		return samsungPrice;
+		return samsungModelPrice;
 
 	}
 
-	//Method for apple model price
-	int appleModelPrice(String appleModel) {
-		int applePrice = 0;
-		switch (appleModel) {
+	// Method for apple model price
+	int appleModelPrice(String selectedAppleModel) {
+		int appleModelPrice = 0;
+		switch (selectedAppleModel) {
 		case "IPHONE 14":
-			applePrice = 30;
+			appleModelPrice = 30;
 			break;
 		case "IPHONE 14 PRO":
-			applePrice = 40;
+			appleModelPrice = 40;
 			break;
 		case "IPHONE 14 PRO MAX":
-			applePrice = 65;
+			appleModelPrice = 65;
 			break;
 		case "IPHONE 14 MINI":
-			applePrice = 25;
+			appleModelPrice = 25;
 			break;
 		default:
-			applePrice = 0;
+			appleModelPrice = 0;
 			break;
 		}
-		return applePrice;
+		return appleModelPrice;
 
 	}
 
-	//Method for network plans
-	int networkPlans(String plan) {
+	// Method for network plans
+	int networkPlans(String selectedNetworkPlan) {
 		int planCost = 0;
 
-		if (plan.equalsIgnoreCase("Rogers")) {
+		if (selectedNetworkPlan.equalsIgnoreCase("Rogers")) {
 			planCost = 70;
-		} else if (plan.equalsIgnoreCase("Bell")) {
+		} else if (selectedNetworkPlan.equalsIgnoreCase("Bell")) {
 			planCost = 80;
-		} else if (plan.equalsIgnoreCase("Telus")) {
+		} else if (selectedNetworkPlan.equalsIgnoreCase("Telus")) {
 			planCost = 75;
 		} else
 			planCost = 0;
 
 		return planCost;
 	}
-	//Method for final bill
-	void billForModelAndPlan(int modelCost, String plan, int planCost, String model ) {
+
+	// Method for final bill
+	void finalBillForModelAndPlan(String model, String plan, int modelCost, int planCost) {
 		System.out.println("You have selected " + model + " with " + plan + " plan");
 		System.out.println("Your Phone tab will be $" + modelCost);
 		System.out.println("Your Montly Plan will be $" + planCost);
