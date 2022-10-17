@@ -22,8 +22,10 @@ public class LibraryMain {
 		BookDetails[] bookDetails = { romeoAndJuliet, peaceOfMind, homeBody, twoStates, halfGirlfriend, oliverTwist,
 				macbeth, harrypotter1, malgudyDays, alchemist };
 		Scanner sc = new Scanner(System.in);
+		String wantToContinue = "y";
 		int bookCount = 0;
 		int flagNoMatch = 0;
+		String userChoice;
 		do {
 			System.out.println("Which book you want to be issued");
 			String requiredBookName = sc.nextLine();
@@ -55,8 +57,11 @@ public class LibraryMain {
 			if (flagNoMatch == 1) {
 				System.out.println("No match for that book");
 			}
-		} while (bookCount < 3);
-
+			System.out.println("Do yo want to continue then press Y");
+			userChoice = sc.nextLine();
+		} while ((bookCount < 3)&&(wantToContinue.equalsIgnoreCase(userChoice)));
+		
+		System.out.println("Total number of books issued is "+bookCount);
 		if (bookCount == 3) {
 			System.out.println("You have already been issued the maximum of three books");
 		}
