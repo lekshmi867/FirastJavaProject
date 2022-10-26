@@ -1,17 +1,20 @@
-package constructorAssignment;
+package encapsulation;
+
+import java.text.DecimalFormat;
 
 public class CruiseDetails {
-	String typeOfCruise;
-	double ticketCostOfAdult;
-	double ticketCostOfChild;
-	int numberOfDays;
-	double totalticketCostOfAdult = 0.0;
-	double totalTicketCostOfChild = 0.0;
-	double childBuffetPrice = 4.99;
-	double adultBuffetPrice = 20.99;
-	double totalAdultBuffetPrice;
-	double totalChildBuffetPrice;
-	int countOfChidAboveFive = 0;
+	private String typeOfCruise;
+	private double ticketCostOfAdult;
+	private double ticketCostOfChild;
+	private int numberOfDays;
+	private double totalticketCostOfAdult = 0.0;
+	private double totalTicketCostOfChild = 0.0;
+	private double childBuffetPrice = 4.99;
+	private double adultBuffetPrice = 20.99;
+	private double totalAdultBuffetPrice;
+	private double totalChildBuffetPrice;
+	private int countOfChidAboveFive = 0;
+	DecimalFormat df = new DecimalFormat("0.00");
 
 	CruiseDetails(String modelOfCruise, double tktCostOfAdult, double tktCostOfChild, int noOfDays) {
 		typeOfCruise = modelOfCruise;
@@ -19,6 +22,27 @@ public class CruiseDetails {
 		ticketCostOfChild = tktCostOfChild;
 		numberOfDays = noOfDays;
 	}
+	
+
+	public String getTypeOfCruise() {
+		return typeOfCruise;
+	}
+
+
+	public double getTicketCostOfAdult() {
+		return ticketCostOfAdult;
+	}
+
+
+	public double getTicketCostOfChild() {
+		return ticketCostOfChild;
+	}
+
+
+	public int getNumberOfDays() {
+		return numberOfDays;
+	}
+
 
 	void totalTicketCostForAdults(int noOfAdult) {
 		totalticketCostOfAdult = totalticketCostOfAdult + (ticketCostOfAdult * noOfAdult * numberOfDays);
@@ -54,9 +78,9 @@ public class CruiseDetails {
 		if ((buffetChoice.equalsIgnoreCase("y")) && (countOfChidAboveFive > 0)) {
 			System.out.println("Buffet Special Price Kids\t@  " + countOfChidAboveFive + " : " + totalChildBuffetPrice);
 		}
-		System.out.println("Total Price \t\t\t: " + totalAmount);
-		System.out.println("HST @ 15% \t\t\t: " + totalHST);
-		System.out.println("Final Price \t\t\t: " + (totalAmount + totalHST));
+		System.out.println("Total Price \t\t\t: " + df.format(totalAmount));
+		System.out.println("HST @ 15% \t\t\t: " + df.format(totalHST));
+		System.out.println("Final Price \t\t\t: " + df.format(totalAmount + totalHST));
 	}
 
 }

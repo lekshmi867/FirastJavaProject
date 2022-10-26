@@ -12,11 +12,13 @@ public class CruiseMain {
 		String buffetChoice;
 		int numberOfAdults;
 
+		// Created instance for each type of cruise
 		CruiseDetails scenicCruise = new CruiseDetails("Scenic Cruise", 43.99, 12.99, 3);
 		CruiseDetails sunsetCruise = new CruiseDetails("Sunset Cruise", 52.99, 15.99, 1);
 		CruiseDetails discoveyCruise = new CruiseDetails("Discovery Cruise", 39.99, 9.99, 4);
 		CruiseDetails mysteryCruise = new CruiseDetails("Mystery Cruise", 45.99, 12.99, 2);
 
+		// Created an array of objects
 		CruiseDetails[] cruiseDetails = { scenicCruise, sunsetCruise, discoveyCruise, mysteryCruise };
 		Scanner sc = new Scanner(System.in);
 		do {
@@ -42,36 +44,38 @@ public class CruiseMain {
 
 			}
 			if (notInList == 1) {
-				System.out.println("This type of cruise is not available please select another option from the list. Press Y to select another option");
+				System.out.println(
+						"This type of cruise is not available please select another option from the list.\nPress Y to select another option or press any other key to exit");
 				userChoice = sc.nextLine();
-				if(!userChoice.equalsIgnoreCase("y")) {
+				if (!userChoice.equalsIgnoreCase("y")) {
 					System.exit(0);
 				}
-			}else {
+			} else {
 				System.out.println(
 						"Please press Y if you want to continue with the selection or press any other alphabet to select another");
 				userChoice = sc.nextLine();
-			}
+			}//want to continue with other option other than y
 		} while ((notInList > 0) || (!wantToContinue.equalsIgnoreCase(userChoice)));
 		for (int i = 0; i < cruiseDetails.length; i++) {
 			if (cruiseDetails[i].typeOfCruise.equalsIgnoreCase(typeOfCruiseEntered)) {
 				do {
 					System.out.println("Enter the number of adults");
 					numberOfAdults = sc.nextInt();
-				} while (numberOfAdults==0);
-				cruiseDetails[i].totalCostForAdults(numberOfAdults);
+				} while (numberOfAdults == 0);
+				cruiseDetails[i].totalTicketCostForAdults(numberOfAdults);
 				System.out.println("Enter the number of children");
 				int numberOfChildren = sc.nextInt();
 				for (int j = 1; j <= numberOfChildren; j++) {
 					System.out.println("Enter the age of child " + j);
 					int ageOfChild = sc.nextInt();
-					cruiseDetails[i].totalCostForChild(ageOfChild);
+					cruiseDetails[i].totalTicketCostForChild(ageOfChild);
 				}
 				System.out.println(
-						"All our cruises have food service on board. Do you want to pre-book for dinner buffet meals at 20.99 per day for adults and 4.99 per day for kids? Press Y to select and N to go to the final price");
+						"All our cruises have food service on board. Do you want to pre-book for dinner buffet meals at 20.99 per day for adults and 4.99 per day for kids?"
+						+ " Press Y to select and N to go to the final price");
 				buffetChoice = sc.next();
 				if (buffetChoice.equalsIgnoreCase("y")) {
-					cruiseDetails[i].buffetOption(numberOfAdults);
+					cruiseDetails[i].buffetOptionCost(numberOfAdults);
 				} else if (buffetChoice.equalsIgnoreCase("n")) {
 					System.out.println("You have not selected the buffet option");
 				} else {
