@@ -1,4 +1,4 @@
-package encapsulation;
+package encapsulationAssignment;
 
 import java.util.Scanner;
 
@@ -12,13 +12,7 @@ public class CruiseMain {
 		String buffetChoice;
 		int numberOfAdults;
 		int ageOfChild;
-		String emailId;
-		String phoneNumber;
-		String password;
-		String firstName;
-		String lastName;
 		boolean isLoginSuccessfull;
-		int numberOfAttempts = 3;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -31,64 +25,16 @@ public class CruiseMain {
 		// Created an array of objects
 		CruiseDetails[] cruiseDetails = { scenicCruise, sunsetCruise, discoveyCruise, mysteryCruise };
 
+		// CruiseDetailsUser object creation
+		CruiseUser cruiseUser = new CruiseUser();
+		
+		//prompt user to enter the user details
 		System.out.println("Welcome to Cruise Booking");
-		do {
-			System.out.println("Enter the e-mail id");
-			emailId = sc.next();
-			if ((!emailId.contains("@")) || (!emailId.contains("."))) {
-				System.out.println("Please enter a valid email id with @ and . ");
-			}
-		} while ((!emailId.contains("@")) || (!emailId.contains(".")));
-		do {
-			System.out.println("Enter the password");
-			password = sc.next();
-			if ((password.length() <= 4) || (password.length() > 15)) {
-				System.out.println(
-						"Please enter a valid password. The length of the password should be in between  5 and 15  ");
-			}
-		} while (((password.length() <= 4) || (password.length() > 15)));
-		do {
-			System.out.println("Enter your first name");
-			firstName = sc.next();
-			if (!firstName.matches("^[a-zA-Z]*$")) {
-				System.out.println("Name can only contails characters");
-			}
-		} while (!firstName.matches("^[a-zA-Z]*$"));
-		do {
-			System.out.println("Enter your last name");
-			lastName = sc.next();
-			if (!lastName.matches("^[a-zA-Z]*$")) {
-				System.out.println("Name can only contails characters");
-			}
-		} while (!lastName.matches("^[a-zA-Z]*$"));
-		do {
-			System.out.println("Enter your phone number");
-			phoneNumber = sc.next();
-			if ((phoneNumber.length() > 10) || (phoneNumber.length() < 10)) {
-				System.out.println("Please enter a valid phone number. Phone number should be a 10 digit number");
-			}
-		} while (phoneNumber.length() != 10);
+		cruiseUser.userRegistration();
 		System.out.println("Thank you for registering!");
 
-		// CruiseDetailsUser object creation
-		CruiseUser cruiseUser = new CruiseUser(emailId, password, firstName, lastName, phoneNumber);
-
 		// verify user login
-		System.out.println("Please Login to the system");
-		do {
-			System.out.println("Enter the email-id");
-			emailId = sc.next();
-			System.out.println("Enter the password ");
-			password = sc.next();
-			isLoginSuccessfull = cruiseUser.verifyUserLogin(emailId, password);
-			if (!isLoginSuccessfull) {
-				numberOfAttempts--;
-			}
-		} while ((numberOfAttempts > 0) && (!isLoginSuccessfull));
-		if (numberOfAttempts == 0) {
-			System.out.println("You have reached the maximum number of attempts. Please start again");
-			System.exit(0);
-		}
+		isLoginSuccessfull = cruiseUser.verifyUserLogin();
 
 		if (isLoginSuccessfull) {
 			do {
@@ -170,13 +116,13 @@ public class CruiseMain {
 					int choice = sc.nextInt();
 					switch (choice) {
 					case 1:
-						cruiseUser.updatePassword();
+						cruiseUser.setPassword();
 						break;
 					case 2:
-						cruiseUser.updatePhoneNumber();
+						cruiseUser.setPhoneNumber();
 						break;
 					case 3:
-						cruiseUser.updateEmailId();
+						cruiseUser.setEmailId();
 						break;
 					default:
 						System.out.println("Invalid choice please select other option");

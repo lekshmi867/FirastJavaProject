@@ -19,15 +19,15 @@ public class CruiseUser {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public void setEmailId(String email) {
+	private void setEmailId(String email) {
 		emailId = email;
 	}
 
-	public void setPassword(String pwrd) {
+	private void setPassword(String pwrd) {
 		password = pwrd;
 	}
 
-	public void setPhoneNumber(String phneNumber) {
+	private void setPhoneNumber(String phneNumber) {
 		phoneNumber = phneNumber;
 	}
 
