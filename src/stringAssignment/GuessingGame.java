@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class GuessingGameMethod {
+public class GuessingGame {
 	
 	int countNumberOfLinesInFile(File file) throws IOException {
 		int numberOfLines=0;

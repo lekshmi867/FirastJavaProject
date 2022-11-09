@@ -4,10 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,7 +14,7 @@ public class GuessingGameMain {
 		int numberOfLines = 0;
 		int arrayCount=0;
 
-		GuessingGameMethod game = new GuessingGameMethod();
+		GuessingGame game = new GuessingGame();
 		File file = new File("C:\\Users\\user\\Desktop\\NameList.txt");
 		numberOfLines = game.countNumberOfLinesInFile(file);
 		BufferedReader br = new BufferedReader(new FileReader(file));
