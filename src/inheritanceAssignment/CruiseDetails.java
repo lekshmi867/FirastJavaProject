@@ -1,8 +1,7 @@
 package inheritanceAssignment;
-
 import java.text.DecimalFormat;
 
-public class CruiseDetails extends CruiseUser {
+public class CruiseDetails extends UserDetails {
 	private double totalticketCostOfAdult = 0.0;
 	private double totalTicketCostOfChild;
 	private double childBuffetPrice = 4.99;

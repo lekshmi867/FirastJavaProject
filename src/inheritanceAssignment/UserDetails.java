@@ -2,7 +2,7 @@ package inheritanceAssignment;
 
 import java.util.Scanner;
 
-public class CruiseUser {
+public class UserDetails {
 	private String emailId;
 	private String password;
 	private String firstName;

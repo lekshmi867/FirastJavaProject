@@ -9,7 +9,6 @@ public class ScenicCruise extends CruiseDetails{
 	public int numberOfDays;
 	double costOfSpa = 50;
 	public ScenicCruise(String typeOfCruise, double ticketCostOfAdult, double ticketCostOfChild, int numberOfDays) {
-		super();
 		this.typeOfCruise = typeOfCruise;
 		this.ticketCostOfAdult = ticketCostOfAdult;
 		this.ticketCostOfChild = ticketCostOfChild;
@@ -34,7 +33,7 @@ public class ScenicCruise extends CruiseDetails{
 		return numberOfDays;
 	}
 	
-	boolean checkIfSpaRequired() {
+	private boolean checkIfSpaRequired() {
 		String spaRequired = "";
 		System.out.println("Scenic Cruise has Spa Services in the cruise. Do you want to prebook the service at "+costOfSpa+" per person for adults");
 		spaRequired = sc.next();
@@ -45,8 +44,6 @@ public class ScenicCruise extends CruiseDetails{
 	}
 	
 	int getAdultsForSpa() {
-		
-//		adultsRequiredSpa = getNoOfAdults();
 		return adultsRequiredSpa;
 		
 	}

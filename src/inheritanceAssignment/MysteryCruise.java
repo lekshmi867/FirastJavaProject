@@ -9,7 +9,6 @@ public class MysteryCruise extends CruiseDetails{
 	public int numberOfDays;
 	double costOfCasino = 20;
 	public MysteryCruise(String typeOfCruise, double ticketCostOfAdult, double ticketCostOfChild, int numberOfDays) {
-		super();
 		this.typeOfCruise = typeOfCruise;
 		this.ticketCostOfAdult = ticketCostOfAdult;
 		this.ticketCostOfChild = ticketCostOfChild;
@@ -18,18 +17,12 @@ public class MysteryCruise extends CruiseDetails{
 	public String getTypeOfCruise() {
 		return typeOfCruise;
 	}
-
-
 	public double getTicketCostOfAdult() {
 		return ticketCostOfAdult;
 	}
-
-
 	public double getTicketCostOfChild() {
 		return ticketCostOfChild;
 	}
-
-
 	public int getNumberOfDays() {
 		return numberOfDays;
 	}
@@ -39,8 +32,7 @@ public class MysteryCruise extends CruiseDetails{
 		System.out.println("Mystery Cruise has a casino option in the cruise. Do you want to prebook the service at "+costOfCasino+" per person for adults");
 		casinoRequired = sc.next();
 		if(casinoRequired.equalsIgnoreCase("y")) {
-			return true;
-			
+			return true;	
 		}
 		return false;
 	}

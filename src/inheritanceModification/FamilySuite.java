@@ -1,28 +1,21 @@
-package inheritanceAssignment;
-public class FamilySuite extends HotelDetails{
-	private String typeOfRoom;
+package inheritanceModification;
+
+public class FamilySuite extends HotelDetails {
 	private int maximumNoOfAdultsAllowed;
 	private int maximumNoOfChildAllowed;
-	private double roomCost;
-	
+
 	public FamilySuite(String typeOfRoom, int maximumNoOfAdultsAllowed, int maximumNoOfChildAllowed, double roomCost) {
-		super(typeOfRoom, maximumNoOfAdultsAllowed,maximumNoOfChildAllowed, roomCost);
-		this.typeOfRoom = typeOfRoom;
+		super(typeOfRoom, maximumNoOfAdultsAllowed, maximumNoOfChildAllowed, roomCost);
 		this.maximumNoOfAdultsAllowed = maximumNoOfAdultsAllowed;
 		this.maximumNoOfChildAllowed = maximumNoOfChildAllowed;
-		this.roomCost = roomCost;
 	}
-	public String getTypeOfRoom() {
-		return typeOfRoom;
-	}
+
 	public int getMaximumNoOfAdultsAllowed() {
 		return maximumNoOfAdultsAllowed;
 	}
+
 	public int getMaximumNoOfChildAllowed() {
 		return maximumNoOfChildAllowed;
 	}
-	public double getRoomCost() {
-		return roomCost;
-	}
-	
+
 }

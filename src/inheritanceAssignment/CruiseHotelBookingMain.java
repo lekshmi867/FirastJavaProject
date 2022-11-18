@@ -13,25 +13,23 @@ public class CruiseHotelBookingMain {
 		int typeOfCruiseEntered;
 
 		Scanner sc = new Scanner(System.in);
-		CruiseUser cruiseUser = new CruiseUser();
+		UserDetails cruiseUser = new UserDetails();
 		boolean isLoginSuccessful = cruiseUser.registrationAndValidateLogin();
 		do {
 			wantTobookAgain ="";
 			userChoice = cruiseUser.choiceOfBooking(isLoginSuccessful);
-			
 			if (userChoice.equalsIgnoreCase("cruise")) {
 				ScenicCruise scenicCruise = new ScenicCruise("Scenic_cruise", 43.99, 12.99, 3);
 				SunsetCruise sunsetCruise = new SunsetCruise("Sunset_cruise", 52.99, 15.99, 1);
 				DiscoveryCruise discoveryCruise = new DiscoveryCruise("Discovery_cruise", 39.99, 9.99, 4);
 				MysteryCruise mysteryCruise = new MysteryCruise("Mystery_cruise", 45.99, 12.99, 2);
-
 				String userChoiceOfCruise = "";
 				CruiseDetails cruiseDetails = new CruiseDetails();
 				do {
-
 					do {
 						userInvalidCruiseChoice = "";
 						typeOfCruiseEntered = cruiseDetails.cruiseUserChoice();
+						Object typeOfObject = typeOfCruiseEntered;
 						switch (typeOfCruiseEntered) {
 						case 1:
 							System.out.println("The cruise that you have selected is " + scenicCruise.getTypeOfCruise()

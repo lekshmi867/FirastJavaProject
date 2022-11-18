@@ -2,7 +2,7 @@ package inheritanceAssignment;
 
 import java.text.DecimalFormat;
 
-public class HotelDetails extends CruiseUser {
+public class HotelDetails extends UserDetails {
 	private double totalRoomCost = 0.0;
 	private double childMealPrice = 5;
 	private double adultMealPrice = 25;
@@ -17,6 +17,25 @@ public class HotelDetails extends CruiseUser {
 	int numberOfChildren;
 	int numberOfDays =0;
 	DecimalFormat df = new DecimalFormat("0.00");
+	private String typeOfRoom;
+	private int maximumNoOfAdultsAllowed;
+	private int maximumNoOfChildAllowed;
+	private double roomCost; 
+	
+
+	public HotelDetails(String typeOfRoom, int maximumNoOfAdultsAllowed, int maximumNoOfChildAllowed, double roomCost) {
+		super();
+		this.typeOfRoom = typeOfRoom;
+		this.maximumNoOfAdultsAllowed = maximumNoOfAdultsAllowed;
+		this.maximumNoOfChildAllowed = maximumNoOfChildAllowed;
+		this.roomCost = roomCost;
+	}
+
+
+	public HotelDetails() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	int hotelUserChoice() {
 
