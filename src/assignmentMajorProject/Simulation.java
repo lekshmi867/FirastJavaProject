@@ -67,10 +67,8 @@ public class Simulation {
 			numberOfSuccessAttempts++;
 		}
 		int budget = rocket.getCost()*(numberOfReAttempts+numberOfSuccessAttempts);
-		String reAttempt = String.format("Number of reattempts to lauch the rocket %d",numberOfReAttempts);
-		String successAttempt = String.format("Number of success attempts to lauch the rocket %d",numberOfSuccessAttempts);
-		System.out.println(reAttempt);
-		System.out.println(successAttempt);
+		System.out.println(String.format("Number of reattempts to lauch the rocket %d",numberOfReAttempts));
+		System.out.println(String.format("Number of success attempts to lauch the rocket %d",numberOfSuccessAttempts));
 		return budget;
 	}
 
