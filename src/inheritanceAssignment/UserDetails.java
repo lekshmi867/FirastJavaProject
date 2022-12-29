@@ -1,6 +1,8 @@
 package inheritanceAssignment;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserDetails {
 	private String emailId;
@@ -17,12 +19,12 @@ public class UserDetails {
 		boolean isPhoneNumberValid;
 		System.out.println("Welcome to Cruise Booking");
 		do {
-			System.out.println("Enter the e-mail id");
+			System.out.println("Enter the e-mail id. EmailId should contain @ and . symbol");
 			emailId = sc.next();
 			isEmailValid = validateEmail(emailId);
 		} while (!isEmailValid);
 		do {
-			System.out.println("Enter the password");
+			System.out.println("Enter the password.Password should be of length 8-20 and it should contains atleast one capital letter, one small letter, one digit and one special character");
 			password = sc.next();
 			isPasswordValid = validatePassword(password);
 		} while (!isPasswordValid);
@@ -41,38 +43,21 @@ public class UserDetails {
 	}
 
 	private boolean validateEmail(String email) {
-		boolean isEmailValid;
-		if (!email.matches("^(.+)@(.+)$")) {
-			System.out.println("Please enter a valid email id with @ and . ");
-			isEmailValid = false;
-		} else {
-			isEmailValid = true;
-		}
-		return isEmailValid;
+		Pattern pattern = Pattern.compile("^(.+)@(.+)$");
+		Matcher matcher = pattern.matcher(email);  
+		return matcher.matches();
 	}
 
 	private boolean validatePassword(String pswd) {
-		boolean isPasswordValid;
-		String regex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$";
-		if (!pswd.matches(regex)) {
-			System.out.println(
-					"Please enter a valid password. Password should be of length 8-20 and it should contains atleast one capital letter, one small letter, one digit and one special character.");
-			isPasswordValid = false;
-		} else {
-			isPasswordValid = true;
-		}
-		return isPasswordValid;
+		Pattern pattern = Pattern.compile("^(?=.*[0-9])\" + \"(?=.*[a-z])(?=.*[A-Z])\" + \"(?=.*[@#$%^&+=])\" + \"(?=\\\\S+$).{8,20}$");
+		Matcher matcher = pattern.matcher(pswd);  
+		return matcher.matches();
 	}
 
 	private boolean validateFirstName(String frstName) {
-		boolean isFirstNameValid;
-		if (!frstName.matches("^[a-zA-Z]*$")) {
-			System.out.println("Name can only contails characters");
-			isFirstNameValid = false;
-		} else {
-			isFirstNameValid = true;
-		}
-		return isFirstNameValid;
+		Pattern pattern = Pattern.compile("^[a-zA-Z]*$");
+		Matcher matcher = pattern.matcher(frstName);  
+		return matcher.matches();
 	}
 
 	private boolean validatePhoneNumber(String phneNumber) {
